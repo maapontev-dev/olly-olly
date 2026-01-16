@@ -1,0 +1,30 @@
+@use "mixins";
+
+$container-width: 120rem;
+
+/* Basic container styles */
+.o-container {
+  width: 100%;
+  max-width: $container-width;
+}
+/* Basic grid layout */
+.o-grid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+
+  &__col {
+    display: flex;
+    flex: 1;
+    align-items: center;
+
+    @include mixins.max(1200px) {
+      flex: 0 0 100%;
+    }
+  }
+}

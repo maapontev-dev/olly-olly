@@ -1,0 +1,1 @@
+<?php /* Hero banner content */

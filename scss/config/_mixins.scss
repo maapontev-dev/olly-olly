@@ -1,0 +1,6 @@
+/* Mixin for media query max-width */
+@mixin max($viewport) {
+  @media (max-width: #{$viewport}) {
+    @content;
+  }
+}

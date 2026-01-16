@@ -1,0 +1,8 @@
+@use "../config/colors";
+@use "../config/flexbox";
+@use "../config/fonts";
+@use "../config/mixins";
+
+.c-topbar {
+  position: relative;
+}
