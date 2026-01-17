@@ -675,7 +675,39 @@ p:last-child {
 }
 
 .c-modal {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  opacity: 0;
+  transition: all ease 0.25s;
+  background-color: rgba(22, 30, 32, 0.3);
+  z-index: 9999;
+}
+.c-modal.is-active {
+  display: block;
+}
+.c-modal.is-fading {
+  opacity: 1;
+}
+.c-modal.is-fading .c-modal__content {
+  transform: translateY(0);
+}
+.c-modal__wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.c-modal__content {
+  padding: 10rem 6rem;
+  background-color: #ffffff;
+  border-radius: 2.4rem;
+  transform: translateY(-2rem);
+  transition: all ease 0.25s;
 }
 
 .c-footer {

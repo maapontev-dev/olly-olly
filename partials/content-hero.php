@@ -24,7 +24,7 @@ $call    = get_field('hb_call');
               $url    = $visit['url'];
               $target = !empty($visit['target']) ?: '_self';
             ?>
-              <a href="<?php echo $url; ?>" class="c-btn c-btn--primary" target="<?php echo $target; ?>">
+              <a href="<?php echo $url; ?>" class="c-btn c-btn--primary" id="form-js" target="<?php echo $target; ?>">
                 <span><?php echo $title; ?></span>
               </a>
             <?php endif;
