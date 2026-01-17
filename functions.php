@@ -1,5 +1,11 @@
 <?php
 
+// Better debugging
+function printr($variable)
+{
+	echo '<pre>', var_dump($variable), '</pre>';
+}
+
 // Add scripts and stylesheets
 function olly_scripts()
 {
@@ -27,11 +33,29 @@ function olly_wp_title($title, $sep)
 }
 add_filter('wp_title', 'olly_wp_title', 10, 2);
 
-function main_menu() {
-    register_nav_menus(
-        array(
-            'main-menu' => _( 'Main menu' )
-        )
-    );
+// Add custom menu locations
+function main_menu()
+{
+	register_nav_menus(
+		array(
+			'main-menu' => _('Main menu')
+		)
+	);
 }
-add_action( 'init', 'main_menu' );
+add_action('init', 'main_menu');
+
+// Image formatting function
+function formatImage($args, $class = false) {
+	$class = $class ?: 'c-image';
+	$image_args = '<img class="' . $class . '" src="' . $args['url'] . '" width="' . $args['width'] .
+		'" height="' . $args['height'] . '" alt=" ' . $args['alt'] .
+		' " title="' . $args['title'] . '" wp-image-' . $args['ID'] . '" />';
+	$image_tag = wp_filter_content_tags($image_args);
+	echo $image_tag;
+}
+
+// Disable code editor
+define('DISALLOW_FILE_EDIT', true);
+
+// Custom theme supports
+add_theme_support('post-thumbnails');

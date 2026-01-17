@@ -1,11 +1,13 @@
 @use "mixins";
 
-$container-width: 120rem;
+$container-width: 128rem;
 
 /* Basic container styles */
 .o-container {
   width: 100%;
   max-width: $container-width;
+  margin: auto;
+  padding: 0 2.4rem;
 }
 /* Basic grid layout */
 .o-grid {
@@ -16,6 +18,10 @@ $container-width: 120rem;
 
   &--reverse {
     flex-direction: row-reverse;
+  }
+
+  &--between {
+    justify-content: space-between;
   }
 
   &__col {

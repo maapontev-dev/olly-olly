@@ -1,0 +1,49 @@
+@use "../config/colors";
+@use "../config/flexbox";
+@use "../config/fonts";
+@use "../config/mixins";
+
+.c-yelp {
+  position: relative;
+  min-width: 36rem;
+  padding: 1.4rem 2rem;
+  background-color: colors.$white;
+  border-radius: 1.2rem;
+  margin-top: 3.6rem;
+  display: block;
+  width: 100%;
+  max-width: 36rem;
+  font-family: fonts.$jost;
+  font-size: 1.4rem;
+
+  a {
+    color: colors.$black;
+    font-weight: 600;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+
+  &__stars {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+}

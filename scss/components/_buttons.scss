@@ -1,8 +1,92 @@
 @use "../config/colors";
-@use "../config/flexbox";
 @use "../config/fonts";
-@use "../config/mixins";
 
 .c-btn {
   position: relative;
+  display: flex;
+  padding: 1.6rem 2.4rem;
+  align-items: center;
+  color: colors.$white;
+  text-decoration: none;
+  font-family: fonts.$montserrat;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+  border-radius: 1.2rem;
+  cursor: pointer;
+  overflow: hidden;
+
+  span {
+    position: relative;
+    z-index: 2;
+  }
+
+  &::before {
+    content: "";
+    width: calc(100% + 0.2rem);
+    height: calc(100% + 0.2rem);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-100%, -50%);
+    transition: all ease-in 0.15s;
+  }
+
+  &:hover {
+    &::before {
+      transform: translate(0, -50%);
+    }
+  }
+
+  > a {
+    text-decoration: none;
+    color: colors.$white !important;
+
+    &::after {
+      display: none !important;
+    }
+  }
+
+  &--icon {
+    padding: 0.6rem;
+  }
+
+  .c-icon {
+    background-color: colors.$white;
+  }
+
+  &--primary {
+    background-color: colors.$greenlight;
+    color: colors.$white;
+
+    &::before {
+      background-color: colors.$greendark;
+    }
+  }
+
+  &--secondary {
+    background-color: colors.$yellow;
+    color: colors.$greendark;
+
+    &::before {
+      background-color: colors.$white;
+    }
+
+    .c-icon {
+      background-color: colors.$greendark;
+    }
+
+    &:hover {
+      color: colors.$greendark;
+    }
+  }
+
+  &--white {
+    color: colors.$greendark;
+    background-color: colors.$white;
+
+    &::before {
+      background-color: colors.$yellow;
+    }
+  }
 }

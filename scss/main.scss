@@ -9,8 +9,11 @@
 @use "config/flexbox";
 
 // Components
+@use "components/icons";
 @use "components/buttons";
 @use "components/menu";
 @use "components/topbar";
 @use "components/hero";
 @use "components/modal";
+@use "components/footer";
+@use "components/yelp";

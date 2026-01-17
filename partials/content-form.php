@@ -1,1 +1,1 @@
-<?php /* form content */
+<h2>Form</h2>

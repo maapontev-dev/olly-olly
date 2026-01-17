@@ -322,7 +322,10 @@ html {
 }
 
 body {
+  position: relative;
   font-size: 1.6rem;
+  min-height: 100vh;
+  padding-bottom: 4.36rem;
   color: #161E20;
 }
 body.overflow-hidden {
@@ -347,6 +350,17 @@ body.overflow-hidden {
   }
 }
 
+.visibly-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
 p:first-child {
   margin-top: 0;
 }
@@ -368,7 +382,9 @@ p:last-child {
 /* Basic container styles */
 .o-container {
   width: 100%;
-  max-width: 120rem;
+  max-width: 128rem;
+  margin: auto;
+  padding: 0 2.4rem;
 }
 
 /* Basic grid layout */
@@ -381,6 +397,9 @@ p:last-child {
 .o-grid--reverse {
   flex-direction: row-reverse;
 }
+.o-grid--between {
+  justify-content: space-between;
+}
 .o-grid__col {
   display: flex;
   flex: 1;
@@ -392,24 +411,309 @@ p:last-child {
   }
 }
 
-.c-btn {
+.c-icon {
+  display: inline-block;
   position: relative;
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1.2rem;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.c-icon--location {
+  background-image: url(../img/icons/icon_location.svg);
+  background-size: 1.2rem;
+}
+.c-icon--phone {
+  background-image: url(../img/icons/icon_phone.svg);
+  background-size: 1.6rem;
+}
+.c-icon--yelp {
+  background-image: url(../img/icons/icon_leafs.svg);
+  background-size: 3rem;
+  background-color: #22B712;
+  width: 5.66rem;
+  height: 5.66rem;
+}
+.c-icon--star {
+  background-image: url(../img/icons/icon_star.svg);
+  background-size: 2rem;
+  margin-right: 0;
+  width: 2.4rem;
+  height: 2.4rem;
 }
 
-.c-menu {
+.c-btn {
   position: relative;
+  display: flex;
+  padding: 1.6rem 2.4rem;
+  align-items: center;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+  border-radius: 1.2rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+.c-btn span {
+  position: relative;
+  z-index: 2;
+}
+.c-btn::before {
+  content: "";
+  width: calc(100% + 0.2rem);
+  height: calc(100% + 0.2rem);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-100%, -50%);
+  transition: all ease-in 0.15s;
+}
+.c-btn:hover::before {
+  transform: translate(0, -50%);
+}
+.c-btn > a {
+  text-decoration: none;
+  color: #ffffff !important;
+}
+.c-btn > a::after {
+  display: none !important;
+}
+.c-btn--icon {
+  padding: 0.6rem;
+}
+.c-btn .c-icon {
+  background-color: #ffffff;
+}
+.c-btn--primary {
+  background-color: #22B712;
+  color: #ffffff;
+}
+.c-btn--primary::before {
+  background-color: #093317;
+}
+.c-btn--secondary {
+  background-color: #F1C500;
+  color: #093317;
+}
+.c-btn--secondary::before {
+  background-color: #ffffff;
+}
+.c-btn--secondary .c-icon {
+  background-color: #093317;
+}
+.c-btn--secondary:hover {
+  color: #093317;
+}
+.c-btn--white {
+  color: #093317;
+  background-color: #ffffff;
+}
+.c-btn--white::before {
+  background-color: #F1C500;
+}
+
+.c-menu__wrapper {
+  display: flex;
+  padding: 2.6rem 0;
+}
+.c-menu__container {
+  display: flex;
+  flex: 1;
+  list-style: none;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 3.6rem;
+}
+.c-menu__container li > a {
+  position: relative;
+  text-decoration: none;
+  color: #32484D;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.05rem;
+}
+.c-menu__container li > a:hover {
+  color: #18800C;
+}
+.c-menu__container li > a:hover::after {
+  transform: scaleX(1);
+  background-color: #18800C;
+}
+.c-menu__container li > a::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0.1rem;
+  position: absolute;
+  bottom: -0.2rem;
+  left: 0;
+  background-color: #32484D;
+  transform: scaleX(0);
+  transition: all ease 0.25s;
+}
+.c-menu__logo {
+  display: flex;
+  align-items: center;
+}
+.c-menu__logo img {
+  display: block;
+  width: 27rem;
 }
 
 .c-topbar {
   position: relative;
+  padding: 1.2rem;
+  background-color: #18800C;
+}
+.c-topbar__announcement {
+  font-size: 1.2rem;
+  font-family: "Jost", sans-serif;
+  width: 400px;
+  letter-spacing: 0.05rem;
+  color: #ffffff;
+  display: inline-block;
+  align-self: center;
+}
+.c-topbar__announcement b,
+.c-topbar__announcement strong {
+  display: inline;
+  margin-left: 1rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+}
+.c-topbar__ctas {
+  display: flex;
+  gap: 6rem;
 }
 
 .c-hero {
   position: relative;
+  display: flex;
+  height: auto;
+  min-height: 75.2rem;
+  padding: 10rem 0;
+}
+.c-hero::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-color: #161E20;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+}
+.c-hero__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 65%;
+  z-index: 1;
+}
+.c-hero__wrapper {
+  width: 100%;
+  max-width: 67.3rem;
+  position: relative;
+  z-index: 3;
+}
+.c-hero__wysiwyg {
+  position: relative;
+  color: #ffffff;
+}
+.c-hero__wysiwyg h1 {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 4.4rem;
+  line-height: 1.27;
+  margin-bottom: 1.2rem;
+}
+.c-hero__wysiwyg h2 {
+  color: #F1C500;
+  font-weight: 700;
+  font-size: 3.6rem;
+  line-height: 1.22;
+  margin-bottom: 1.2rem;
+}
+.c-hero__wysiwyg p {
+  letter-spacing: 0.05rem;
+  line-height: 1.7;
+}
+.c-hero__ctas {
+  display: flex;
+  margin-top: 3.6rem;
+  gap: 2.4rem;
+  position: relative;
+  z-index: 4;
 }
 
 .c-modal {
   position: relative;
+}
+
+.c-footer {
+  width: 100%;
+  background-color: #18800C;
+  position: relative;
+  padding: 1.2rem;
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-family: "Jost", sans-serif;
+  font-weight: 300;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.c-yelp {
+  position: relative;
+  min-width: 36rem;
+  padding: 1.4rem 2rem;
+  background-color: #ffffff;
+  border-radius: 1.2rem;
+  margin-top: 3.6rem;
+  display: block;
+  width: 100%;
+  max-width: 36rem;
+  font-family: "Jost", sans-serif;
+  font-size: 1.4rem;
+}
+.c-yelp a {
+  color: #161E20;
+  font-weight: 600;
+}
+.c-yelp__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.c-yelp__content {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.c-yelp__stars {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+}
+.c-yelp__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
 }
 
 /*# sourceMappingURL=main.css.map */

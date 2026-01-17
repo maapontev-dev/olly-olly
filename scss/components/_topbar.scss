@@ -5,4 +5,30 @@
 
 .c-topbar {
   position: relative;
+  padding: 1.2rem;
+  background-color: colors.$green;
+
+  &__announcement {
+    font-size: 1.2rem;
+    font-family: fonts.$jost;
+    width: 400px;
+    letter-spacing: 0.05rem;
+    color: colors.$white;
+    display: inline-block;
+    align-self: center;
+
+    b,
+    strong {
+      display: inline;
+      margin-left: 1rem;
+      font-size: 1.4rem;
+      font-weight: 700;
+      font-family: fonts.$montserrat;
+    }
+  }
+
+  &__ctas {
+    display: flex;
+    gap: 6rem;
+  }
 }

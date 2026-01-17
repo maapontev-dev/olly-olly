@@ -13,7 +13,10 @@ html {
 }
 
 body {
+  position: relative;
   font-size: 1.6rem;
+  min-height: 100vh;
+  padding-bottom: 4.36rem;
   color: colors.$black;
 
   &.overflow-hidden {
@@ -35,6 +38,17 @@ body {
   @include mixins.max(1200px) {
     display: none !important;
   }
+}
+
+.visibly-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 p:first-child {

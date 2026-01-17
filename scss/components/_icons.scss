@@ -1,0 +1,41 @@
+@use "../config/colors";
+@use "../config/flexbox";
+@use "../config/fonts";
+@use "../config/mixins";
+
+.c-icon {
+  display: inline-block;
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1.2rem;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &--location {
+    background-image: url(../img/icons/icon_location.svg);
+    background-size: 1.2rem;
+  }
+
+  &--phone {
+    background-image: url(../img/icons/icon_phone.svg);
+    background-size: 1.6rem;
+  }
+
+  &--yelp {
+    background-image: url(../img/icons/icon_leafs.svg);
+    background-size: 3rem;
+    background-color: colors.$greenlight;
+    width: 5.66rem;
+    height: 5.66rem;
+  }
+
+  &--star {
+    background-image: url(../img/icons/icon_star.svg);
+    background-size: 2rem;
+    margin-right: 0;
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}
