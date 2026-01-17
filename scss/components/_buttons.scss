@@ -15,6 +15,7 @@
   border-radius: 1.2rem;
   cursor: pointer;
   overflow: hidden;
+  transition: all ease 0.25s;
 
   span {
     position: relative;
@@ -33,8 +34,14 @@
   }
 
   &:hover {
+    color: colors.$yellow;
+
     &::before {
       transform: translate(0, -50%);
+    }
+
+    .c-icon {
+      background-color: colors.$yellow;
     }
   }
 
@@ -53,6 +60,7 @@
 
   .c-icon {
     background-color: colors.$white;
+    transition: all ease 0.25s;
   }
 
   &--primary {
@@ -61,6 +69,10 @@
 
     &::before {
       background-color: colors.$greendark;
+    }
+
+    &:hover {
+      color: colors.$white;
     }
   }
 
@@ -78,6 +90,10 @@
 
     &:hover {
       color: colors.$greendark;
+
+      .c-icon {
+        background-color: colors.$greendark;
+      }
     }
   }
 
@@ -87,6 +103,10 @@
 
     &::before {
       background-color: colors.$yellow;
+    }
+
+    &:hover {
+      color: colors.$greendark;
     }
   }
 }

@@ -458,6 +458,7 @@ p:last-child {
   border-radius: 1.2rem;
   cursor: pointer;
   overflow: hidden;
+  transition: all ease 0.25s;
 }
 .c-btn span {
   position: relative;
@@ -473,8 +474,14 @@ p:last-child {
   transform: translate(-100%, -50%);
   transition: all ease-in 0.15s;
 }
+.c-btn:hover {
+  color: #F1C500;
+}
 .c-btn:hover::before {
   transform: translate(0, -50%);
+}
+.c-btn:hover .c-icon {
+  background-color: #F1C500;
 }
 .c-btn > a {
   text-decoration: none;
@@ -488,6 +495,7 @@ p:last-child {
 }
 .c-btn .c-icon {
   background-color: #ffffff;
+  transition: all ease 0.25s;
 }
 .c-btn--primary {
   background-color: #22B712;
@@ -495,6 +503,9 @@ p:last-child {
 }
 .c-btn--primary::before {
   background-color: #093317;
+}
+.c-btn--primary:hover {
+  color: #ffffff;
 }
 .c-btn--secondary {
   background-color: #F1C500;
@@ -509,12 +520,18 @@ p:last-child {
 .c-btn--secondary:hover {
   color: #093317;
 }
+.c-btn--secondary:hover .c-icon {
+  background-color: #093317;
+}
 .c-btn--white {
   color: #093317;
   background-color: #ffffff;
 }
 .c-btn--white::before {
   background-color: #F1C500;
+}
+.c-btn--white:hover {
+  color: #093317;
 }
 
 .c-menu__wrapper {

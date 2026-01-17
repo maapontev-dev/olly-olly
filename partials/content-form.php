@@ -1,1 +1,3 @@
-<h2>Form</h2>
+<section class="c-modal" id="modal-form-js">
+  This is a modal window
+</section>
