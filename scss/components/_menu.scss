@@ -4,9 +4,19 @@
 @use "../config/mixins";
 
 .c-menu {
+  position: relative;
+  z-index: 999;
+  background-color: colors.$white;
+
   &__wrapper {
     display: flex;
     padding: 2.6rem 0;
+
+    @include mixins.max(990px) {
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
   }
 
   &__container {
@@ -16,6 +26,33 @@
     justify-content: flex-end;
     align-items: center;
     gap: 3.6rem;
+
+    @include mixins.max(990px) {
+      display: none;
+      opacity: 0;
+      position: absolute;
+      bottom: 0.1rem;
+      left: 0;
+      width: calc(100% + 4.8rem);
+      height: auto;
+      margin: 0;
+      padding: 2.4rem;
+      gap: 2.4rem;
+      transform: translate(-2.4rem, 0);
+      transition: all ease 0.25s;
+      background-color: colors.$white;
+      flex-direction: column;
+      z-index: -1;
+
+      &.is-active {
+        display: flex;
+      }
+
+      &.is-fading {
+        opacity: 1;
+        transform: translate(-2.4rem, calc(100% - 2.4rem));
+      }
+    }
 
     li > a {
       position: relative;
@@ -36,7 +73,7 @@
       }
 
       &::after {
-        content: '';
+        content: "";
         display: block;
         width: 100%;
         height: 0.1rem;
@@ -57,6 +94,69 @@
     img {
       display: block;
       width: 27rem;
+
+      @include mixins.max(990px) {
+        width: 16rem;
+      }
     }
   }
+}
+
+/* Hamburguer menu icon */
+.c-ham {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  z-index: 99;
+  display: none;
+
+  @include mixins.max(990px) {
+    display: block;
+  }
+}
+
+.c-ham .line {
+  width: 3rem;
+  height: 0.5rem;
+  background-color: colors.$green;
+  display: block;
+  margin: 0.5rem auto;
+  transition: all 0.3s ease-in-out;
+}
+
+.c-ham.is-active {
+  transform: rotate(45deg);
+}
+
+.c-ham:before {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  width: 5rem;
+  height: 5rem;
+  border: 0.5rem solid transparent;
+  top: calc(50% - 2.5rem);
+  left: calc(50% - 2.5rem);
+  border-radius: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.c-ham.is-active:before {
+  border: 0.5rem solid colors.$green;
+}
+
+.c-ham.is-active .line {
+  width: 3rem;
+}
+
+.c-ham.is-active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.c-ham.is-active .line:nth-child(1) {
+  transform: translateY(1rem);
+}
+
+.c-ham.is-active .line:nth-child(3) {
+  transform: translateY(-1rem) rotate(90deg);
 }

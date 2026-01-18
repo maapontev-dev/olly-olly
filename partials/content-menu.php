@@ -15,6 +15,11 @@
 
       wp_nav_menu($MenuArgs);
       ?>
+      <div class="c-ham" id="menu-btn-js">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
     </nav>
   </div>
 </section>

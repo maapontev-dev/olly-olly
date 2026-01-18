@@ -17,6 +17,12 @@
     display: inline-block;
     align-self: center;
 
+    @include mixins.max(760px) {
+      margin-bottom: 1rem;
+      width: 100%;
+      text-align: center;
+    }
+
     b,
     strong {
       display: inline;
@@ -24,11 +30,25 @@
       font-size: 1.4rem;
       font-weight: 700;
       font-family: fonts.$montserrat;
+
+      @include mixins.max(990px) {
+        font-size: 1.2rem;
+        margin-left: 0.6rem;
+      }
     }
   }
 
   &__ctas {
     display: flex;
     gap: 6rem;
+
+    @include mixins.max(990px) {
+      gap: 2.4rem;
+    }
+
+    @include mixins.max(760px) {
+      width: 100%;
+      justify-content: center;
+    }
   }
 }

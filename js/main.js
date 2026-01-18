@@ -1,5 +1,24 @@
 console.log("*** Main js working ***");
 
+/* Hamburger menu */
+const hamburger = document.querySelector("#menu-btn-js");
+const mobileMenu = document.querySelector("#menu-main-menu");
+
+hamburger.addEventListener("click", (e) => {
+  hamburger.classList.toggle("is-active");
+  if (mobileMenu.classList.contains("is-active")) {
+    mobileMenu.classList.remove("is-fading");
+    setTimeout(() => {
+      mobileMenu.classList.remove("is-active");
+    }, 260);
+  } else {
+    mobileMenu.classList.add("is-active");
+    setTimeout(() => {
+      mobileMenu.classList.add("is-fading");
+    }, 10);
+  }
+});
+
 /* Open form modal window */
 const modalForm = document.querySelector("#modal-form-js");
 const scheduleButton = document.querySelector("#form-js");
@@ -56,14 +75,14 @@ function updateStepStatus() {
     steps[currentStep].classList.add("is-fading");
   }, 250);
 
-  if(currentStep == 0) {
-    prevBtn.classList.add('is-hidden');
-  } else if(currentStep == totalSteps) {
-    nextBtn.classList.add('is-hidden');
-    prevBtn.classList.add('is-hidden');
+  if (currentStep == 0) {
+    prevBtn.classList.add("is-hidden");
+  } else if (currentStep == totalSteps) {
+    nextBtn.classList.add("is-hidden");
+    prevBtn.classList.add("is-hidden");
   } else {
-    prevBtn.classList.remove('is-hidden');
-    nextBtn.classList.remove('is-hidden');
+    prevBtn.classList.remove("is-hidden");
+    nextBtn.classList.remove("is-hidden");
   }
 }
 
