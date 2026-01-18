@@ -19,4 +19,4 @@ This WordPress theme was developed as part of a technical interview assessment f
 * Tested with WordPress 6.x and PHP 8+
 
 ## == Resources ==
-* All images and icons provided y [Olly-Olly](https://www.ollyolly.com/)
+* All images and icons provided by [Olly-Olly](https://www.ollyolly.com/)

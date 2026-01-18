@@ -1,7 +1,4 @@
 @use "../config/colors";
-@use "../config/flexbox";
-@use "../config/fonts";
-@use "../config/mixins";
 
 .c-icon {
   display: inline-block;
@@ -37,5 +34,14 @@
     margin-right: 0;
     width: 2.4rem;
     height: 2.4rem;
+  }
+
+  &--check {
+    background-image: url(../img/icons/icon_check.svg);
+    background-size: 2.13rem;
+    margin-right: 0;
+    width: 4rem;
+    height: 4rem;
+    background-color: colors.$greenlight;
   }
 }

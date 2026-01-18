@@ -1,0 +1,166 @@
+@use "../config/colors";
+@use "../config/flexbox";
+@use "../config/fonts";
+@use "../config/mixins";
+
+.c-form {
+  &__nav {
+    list-style: none;
+    padding: 0;
+    margin: 3.6rem 0 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    &::after,
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 0.2rem;
+      background-color: colors.$greylight;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    &::before {
+      background-color: colors.$yellow;
+      transform: translateX(-100%);
+      transition: all ease 0.25s;
+      z-index: 2;
+    }
+
+    &.step-1::before {
+      transform: translateX(- calc(calc(100% / 3) * 2));
+    }
+
+    &.step-2::before {
+      transform: translateX(- calc(100% / 3));
+    }
+
+    &.step-3::before {
+      transform: translateX(0);
+    }
+  }
+
+  &__step {
+    display: none;
+    opacity: 0;
+    margin-top: 3.6rem;
+    transition: all ease 0.25s;
+    font-family: fonts.$jost;
+    letter-spacing: 0.05rem;
+    line-height: 1.83;
+
+    &.is-active {
+      display: block;
+    }
+
+    &.is-fading {
+      opacity: 1;
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-size: 1.4rem;
+    font-family: fonts.$montserrat;
+    color: colors.$greydark;
+    line-height: 1.71;
+    margin-bottom: 0.8rem;
+  }
+
+  &__input {
+    background-color: colors.$greylight;
+    font-size: 1.2rem;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.8rem;
+    border-radius: 0.6rem;
+    border: none;
+  }
+
+  &__error,
+  &__text {
+    color: colors.$black;
+    font-size: 1.2rem;
+    display: inline-block;
+  }
+
+  &__error {
+    color: colors.$red;
+    display: none;
+
+    &.is-active {
+      display: block;
+    }
+  }
+
+  &__thanks {
+    font-family: fonts.$montserrat;
+    display: flex;
+    gap: 2rem;
+
+    h3 {
+      font-size: 2.4rem;
+      line-height: 1.333;
+      letter-spacing: 0;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      color: colors.$black;
+    }
+
+    p {
+      font-size: 1.4rem;
+      line-height: 1.7;
+      margin-top: 0;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 1.2rem;
+
+    .is-hidden {
+      display: none;
+    }
+
+    button {
+      margin-top: 3.6rem;
+    }
+  }
+
+  &__circle {
+    width: 1.6rem;
+    height: 1.6rem;
+    display: block;
+    border-radius: 50%;
+    background-color: colors.$greylight;
+    position: relative;
+    z-index: 3;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: colors.$yellow;
+      transform: scale(0);
+      transition: all ease 0.25s;
+      z-index: 4;
+    }
+
+    &.is-active::after {
+      transform: scale(1);
+    }
+  }
+}
