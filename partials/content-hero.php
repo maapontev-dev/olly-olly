@@ -20,8 +20,8 @@ $call    = get_field('hb_call');
         if (!empty($visit) || !empty($call)) : ?>
           <div class="c-hero__ctas">
             <?php if (!empty($visit)) :
-              $title  = $visit['title'];
-              $url    = $visit['url'];
+              $title  = esc_html($visit['title']);
+              $url    = esc_url($visit['url']);
               $target = !empty($visit['target']) ?: '_self';
             ?>
               <a href="<?php echo $url; ?>" class="c-btn c-btn--primary" id="form-js" target="<?php echo $target; ?>">
@@ -29,8 +29,8 @@ $call    = get_field('hb_call');
               </a>
             <?php endif;
             if (!empty($call)) :
-              $title  = $call['title'];
-              $url    = $call['url'];
+              $title  = esc_html($call['title']);
+              $url    = esc_url($call['url']);
               $target = !empty($call['target']) ?: '_self';
             ?>
               <a href="<?php echo $url; ?>" class="c-btn c-btn--white" target="<?php echo $target; ?>">
