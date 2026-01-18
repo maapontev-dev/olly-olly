@@ -10,13 +10,13 @@ if (!empty($announcement) || !empty($location) || !empty($phone)) :
       <div class="o-grid o-grid--between">
         <?php if (!empty($announcement)) : ?>
           <div class="c-topbar__announcement">
-            <?php echo esc_html($announcement); ?>
+            <?php echo $announcement; ?>
           </div>
         <?php endif;
         if (!empty($location) || !empty($phone)) : ?>
           <div class="c-topbar__ctas">
             <?php if (!empty($location)) :
-              $title  = esc_html($location['title']);
+              $title  = $location['title'];
               $url    = esc_url($location['url']);
               $target = !empty($location['target']) ?: '_self';
             ?>
@@ -26,7 +26,7 @@ if (!empty($announcement) || !empty($location) || !empty($phone)) :
               </a>
             <?php endif; ?>
             <?php if (!empty($phone)) :
-              $title  = esc_html($phone['title']);
+              $title  = $phone['title'];
               $url    = esc_url($phone['url']);
               $target = !empty($phone['target']) ?: '_self';
             ?>

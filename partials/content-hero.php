@@ -20,7 +20,7 @@ $call    = get_field('hb_call');
         if (!empty($visit) || !empty($call)) : ?>
           <div class="c-hero__ctas">
             <?php if (!empty($visit)) :
-              $title  = esc_html($visit['title']);
+              $title  = $visit['title'];
               $url    = esc_url($visit['url']);
               $target = !empty($visit['target']) ?: '_self';
             ?>
@@ -29,7 +29,7 @@ $call    = get_field('hb_call');
               </a>
             <?php endif;
             if (!empty($call)) :
-              $title  = esc_html($call['title']);
+              $title  = $call['title'];
               $url    = esc_url($call['url']);
               $target = !empty($call['target']) ?: '_self';
             ?>
